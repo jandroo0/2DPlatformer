@@ -35,7 +35,7 @@ public class GameScreen implements Screen {
     private TmxMapLoader mapLoader;
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
-    int mapWidth, mapHeight, tilePixelWidth, tilePixelHeight, mapPixelWidth, mapPixelHeight;
+    public int mapWidth, mapHeight, tilePixelWidth, tilePixelHeight, mapPixelWidth, mapPixelHeight;
 
     // player
     private Player player;
@@ -78,7 +78,7 @@ public class GameScreen implements Screen {
 
     public void update(float deltaTime) {
         //player input
-        player.handleInput(deltaTime, viewport);
+        player.handleInput(deltaTime);
 
         // takes 1 step in the physics simulation (60 times per second)
         world.step(1 / 60f, 6, 2);

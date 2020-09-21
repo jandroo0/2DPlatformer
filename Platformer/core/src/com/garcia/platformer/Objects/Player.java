@@ -21,6 +21,8 @@ import com.garcia.platformer.Util.Assets;
 import com.garcia.platformer.Util.Constants;
 
 public class Player extends Sprite {
+    GameScreen screen;
+
     public enum State {WALKING, DUCKING, FALLING, HANGING, CLIMBING, STANDING, HOLDING, HURT, IDLE, KICKING, ATTACKING, JUMPING}
     public State currentState, previousState;
     float stateTimer;
@@ -36,6 +38,7 @@ public class Player extends Sprite {
     public Player(GameScreen screen) {
         super(Assets.instance.playerAsset.texture);
         this.world = screen.getWorld();
+        this.screen = screen;
         currentState = State.STANDING;
         previousState = State.STANDING;
         playerAsset = Assets.instance.playerAsset;
@@ -50,7 +53,7 @@ public class Player extends Sprite {
     }
 
     // player input
-    public void handleInput(float deltaTime, Viewport viewport) {
+    public void handleInput(float deltaTime) {
         // up
         if (Gdx.input.isKeyJustPressed(Input.Keys.W))
             b2body.applyLinearImpulse(new Vector2(0, 4), b2body.getWorldCenter(), true);
@@ -60,6 +63,7 @@ public class Player extends Sprite {
         // left
         if (Gdx.input.isKeyPressed(Input.Keys.A) && b2body.getLinearVelocity().x >= -1.5f)
             b2body.applyLinearImpulse(new Vector2(-getVel(), 0), b2body.getWorldCenter(), true);
+
     }
 
     public void update(float deltaTime) {

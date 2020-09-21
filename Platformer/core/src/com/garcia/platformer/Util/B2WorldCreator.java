@@ -49,6 +49,7 @@ public class B2WorldCreator {
 
             shape.setAsBox((rect.getWidth() / 2) / Constants.PPM, (rect.getHeight() / 2) / Constants.PPM);
             fdef.shape = shape;
+            fdef.friction = 0;
             fdef.filter.categoryBits = Constants.BORDER_BIT;
             body.createFixture(fdef);
         }
