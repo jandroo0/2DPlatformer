@@ -8,25 +8,14 @@
  </layer>
  <layer id="2" name="Graphics" width="64" height="16">
   <data encoding="base64" compression="zlib">
-   eJztkUEKgDAMBIN+IXjUk3fpH/r/LymoEMpW0otYswNzTiYRIYQQQgjxkcfTiNztEftte7R+1D4PImvFP1G2T1fjcqimWY09UPtdaQJqo95Zb4p2Q7tvQG9j652+6FN/z607te4c4Q==
+   eJxjYBgFo2AUjIJRMApGwSggDrgyQ/BIBDC/j0T/I/t9pPkfm9+R+ZpMwzd80P0lBvSrKtS/IlA2CIsg4aEAVJmIw0ZYsAiJmFi76ImxuQ2b2w2wYGL9SGo4DUaMz/9D2a8AbeYeIQ==
   </data>
  </layer>
- <objectgroup id="3" name="Ground">
-  <object id="25" x="0" y="910" width="700" height="210"/>
-  <object id="31" x="980" y="840" width="70" height="70"/>
-  <object id="32" x="1050" y="840" width="140" height="280"/>
-  <object id="33" x="1190" y="770" width="420" height="350"/>
-  <object id="45" x="1120" y="840">
-   <polygon points="0,0 70,-70 70,0"/>
-  </object>
- </objectgroup>
+ <objectgroup id="3" name="Ground"/>
  <objectgroup id="5" name="Border">
   <object id="21" x="0" y="0" height="910"/>
   <object id="22" x="4480" y="0" height="910"/>
   <object id="24" x="0" y="420" width="4480"/>
  </objectgroup>
- <objectgroup id="6" name="Water">
-  <object id="35" x="700" y="980" width="350" height="140"/>
-  <object id="42" x="700" y="930.667" width="348" height="49.3333"/>
- </objectgroup>
+ <objectgroup id="6" name="Water"/>
 </map>

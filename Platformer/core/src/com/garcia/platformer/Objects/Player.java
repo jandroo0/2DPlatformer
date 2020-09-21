@@ -106,7 +106,7 @@ public class Player extends Sprite {
 
     public void definePlayer() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(800 / Constants.PPM, 300 / Constants.PPM);
+        bdef.position.set(200 / Constants.PPM, 300 / Constants.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
 
         b2body = world.createBody(bdef);
