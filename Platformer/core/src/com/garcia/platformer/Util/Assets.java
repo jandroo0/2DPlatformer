@@ -6,11 +6,9 @@ import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Disposable;
-import com.garcia.platformer.Objects.Player;
 
 public class Assets implements Disposable, AssetErrorListener {
     public static final String TAG = Assets.class.getName();
@@ -127,11 +125,12 @@ public class Assets implements Disposable, AssetErrorListener {
         public final TextureRegion playerJump;
         public final TextureRegion playerFall;
         public final TextureRegion playerDuck;
-//            public final TextureRegion playerHurt;
-//            public final TextureRegion playerHold;
+        public final TextureRegion playerHurt;
+        public final TextureRegion playerHold1;
+        public final TextureRegion playerHold2;
 
         public final Animation<TextureRegion> playerWalk;
-//            public final Animation<TextureRegion> playerAttack;
+        public final Animation<TextureRegion> playerAttack;
 
         public PlayerAsset(AssetManager manager) {
             texture = assetManager.get("gfx/players/PNG/Adventurer/adventurer_tilesheet.png");
@@ -141,6 +140,12 @@ public class Assets implements Disposable, AssetErrorListener {
             for (int i = 0; i < 2; i++)
                 frames.add(new TextureRegion(texture, i * 80, 110, 80, 110));
             playerWalk = new Animation<TextureRegion>(0.1f, frames);
+            frames.clear();
+
+            // attacking animation
+            for (int i = 4; i < 6; i++)
+                frames.add(new TextureRegion(texture, i * 80, 110));
+            playerAttack = new Animation<TextureRegion>(0.1f, frames);
             frames.clear();
 
             // player standing
@@ -154,58 +159,15 @@ public class Assets implements Disposable, AssetErrorListener {
 
             // player ducking
             playerDuck = new TextureRegion(texture, 240, 0, 80, 110);
+
+            // player holding
+            playerHold1 = new TextureRegion(texture, 160, 110, 80, 110);
+            playerHold2 = new TextureRegion(texture, 240, 110, 80, 110);
+
+            // player hurt
+            playerHurt = new TextureRegion(texture, 320, 0, 80, 110);
         }
     }
-
-
-//    public class AssetCoin {
-//        Texture texture;
-//        public final Animation<TextureRegion> coinAnimation;
-//        private float coinTimer;
-//
-//        TextureRegion[][] textureRegion2D;
-//        TextureRegion[] textureRegion1D;
-//
-//        public float x, y;
-//        float totalAnimationTime;
-//
-//        public AssetCoin(AssetManager assetManager) {
-//            texture = assetManager.get("sprites/effects/coin_01.png", Texture.class);
-//
-//            totalAnimationTime = 0.8f;
-//
-//            // split texture
-//            textureRegion2D = TextureRegion.split(texture, 120, 120);
-//
-//            // convert to 1D array
-//            textureRegion1D = new TextureRegion[8];
-//
-//            int index = 0;
-//
-//            for (int j = 0; j < 8; j++) { //column
-//                textureRegion1D[index] = textureRegion2D[0][j];
-//                index++;
-//            }
-//
-//            coinAnimation = new Animation<TextureRegion>(totalAnimationTime / 8, textureRegion1D);
-//            coinAnimation.setPlayMode(Animation.PlayMode.LOOP);
-//            coinTimer = 0;
-//        }
-//
-//        public void update(float deltaTime) {
-//            coinTimer += deltaTime;
-//        }
-//
-//        public void setPos(float x, float y) {
-//            this.x = x;
-//            this.y = y;
-//        }
-//
-//        public void draw(Batch batch) {
-//            batch.draw(coinAnimation.getKeyFrame(coinTimer),
-//                    x, y, 5, 6);
-//        }
-//    }
 
 }
 

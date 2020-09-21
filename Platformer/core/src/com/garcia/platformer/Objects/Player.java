@@ -54,6 +54,10 @@ public class Player extends Sprite {
 
     // player input
     public void handleInput(float deltaTime) {
+
+        // attacking
+        
+
         // up
         if (Gdx.input.isKeyJustPressed(Input.Keys.W))
             b2body.applyLinearImpulse(new Vector2(0, 4), b2body.getWorldCenter(), true);
